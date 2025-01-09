@@ -6,6 +6,10 @@ use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\EmployeeController;
+
+
+Route::get('/employee', [EmployeeController::class, 'index']);
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -15,6 +19,7 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
 
 Route::resource('chirps', ChirpController::class)
     // ->only(['index', 'store'])
