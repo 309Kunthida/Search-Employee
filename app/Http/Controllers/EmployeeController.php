@@ -19,7 +19,8 @@ class EmployeeController extends Controller
         $query = $request->input('search');
         $employees = DB::table('employees')
         ->where('first_name','like','%'.$query.'%')
-        ->orWhere('last_name','like','%'.$query.'%') //ใช้ or หาข้อความได้ทั้งชื่อหรือนามสกุล
+        ->orWhere('last_name','like','%'.$query.'%')
+        ->orWhere('Gender','like','%'.$query.'%') //ใช้ or หาข้อความได้ทั้งชื่อหรือนามสกุล
         ->paginate(10);
 
         //Log::info($employees);
